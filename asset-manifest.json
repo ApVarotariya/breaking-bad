@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c6422169.css",
+    "main.js": "/static/js/main.d501f336.js",
+    "static/js/787.4efa206a.chunk.js": "/static/js/787.4efa206a.chunk.js",
+    "static/media/bg.jpg": "/static/media/bg.085908ea8f76e1ae1806.jpg",
+    "static/media/logo.png": "/static/media/logo.e6ecab4407f10ecd02bd.png",
+    "index.html": "/index.html",
+    "static/media/magnifying-glass-solid.svg": "/static/media/magnifying-glass-solid.cd761af2e6d53d07ac61.svg",
+    "main.c6422169.css.map": "/static/css/main.c6422169.css.map",
+    "main.d501f336.js.map": "/static/js/main.d501f336.js.map",
+    "787.4efa206a.chunk.js.map": "/static/js/787.4efa206a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c6422169.css",
+    "static/js/main.d501f336.js"
+  ]
+}
