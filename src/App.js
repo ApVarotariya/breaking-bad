@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <Header />
-      <Routes>
+      <Routes basename="/breaking-bad">
         <Route path="/" element={<Main />} />
         <Route path="/episode" element={<Episode />}>
           <Route path="/episode/:episodeID" element={<EpisodeDetails />} />
