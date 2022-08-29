@@ -12,7 +12,7 @@ function App() {
     <>
       <Header />
       <Routes basename="/breaking-bad" element={<Main />}>
-        <Route path="/" element={<Main />} />
+        <Route path="/" element={<Episode />} />
         <Route path="/episode" element={<Episode />}>
           <Route path="/episode/:episodeID" element={<EpisodeDetails />} />
         </Route>
