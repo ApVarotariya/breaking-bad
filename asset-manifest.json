@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.c6422169.css",
-    "main.js": "/static/js/main.d501f336.js",
-    "static/js/787.4efa206a.chunk.js": "/static/js/787.4efa206a.chunk.js",
-    "static/media/bg.jpg": "/static/media/bg.085908ea8f76e1ae1806.jpg",
-    "static/media/logo.png": "/static/media/logo.e6ecab4407f10ecd02bd.png",
-    "index.html": "/index.html",
-    "static/media/magnifying-glass-solid.svg": "/static/media/magnifying-glass-solid.cd761af2e6d53d07ac61.svg",
-    "main.c6422169.css.map": "/static/css/main.c6422169.css.map",
-    "main.d501f336.js.map": "/static/js/main.d501f336.js.map",
-    "787.4efa206a.chunk.js.map": "/static/js/787.4efa206a.chunk.js.map"
+    "main.css": "/breaking-bad/static/css/main.18cff82a.css",
+    "main.js": "/breaking-bad/static/js/main.a247ffdc.js",
+    "static/js/787.4efa206a.chunk.js": "/breaking-bad/static/js/787.4efa206a.chunk.js",
+    "static/media/bg.jpg": "/breaking-bad/static/media/bg.085908ea8f76e1ae1806.jpg",
+    "static/media/logo.png": "/breaking-bad/static/media/logo.e6ecab4407f10ecd02bd.png",
+    "index.html": "/breaking-bad/index.html",
+    "static/media/magnifying-glass-solid.svg": "/breaking-bad/static/media/magnifying-glass-solid.cd761af2e6d53d07ac61.svg",
+    "main.18cff82a.css.map": "/breaking-bad/static/css/main.18cff82a.css.map",
+    "main.a247ffdc.js.map": "/breaking-bad/static/js/main.a247ffdc.js.map",
+    "787.4efa206a.chunk.js.map": "/breaking-bad/static/js/787.4efa206a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c6422169.css",
-    "static/js/main.d501f336.js"
+    "static/css/main.18cff82a.css",
+    "static/js/main.a247ffdc.js"
   ]
 }
