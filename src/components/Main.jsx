@@ -1,4 +1,4 @@
-import React, { useState, useEffect, CSSProperties } from "react";
+import React, { useState, useEffect } from "react";
 import { Tabs, Tab } from "react-bootstrap";
 import Episode from "./Episode";
 import ClipLoader from "react-spinners/ClipLoader";
@@ -15,9 +15,9 @@ const Main = () => {
     height: "60px",
     margin: "0 auto",
     position: "absolute",
-    left: "50%",
+    left: "0%",
     top: "50%",
-    Transform: "translate(-50% , -50%)",
+    right: "0%",
     borderColor: "white",
     borderWidth: "5px",
   });
