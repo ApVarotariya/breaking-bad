@@ -11,8 +11,8 @@ function App() {
   return (
     <>
       <Header />
-      <Routes basename="/breaking-bad" element={<Main />}>
-        <Route path="/" element={<Episode />} />
+      <Routes>
+        <Route index path="/breaking-bad" element={<Main />} />
         <Route path="/episode" element={<Episode />}>
           <Route path="/episode/:episodeID" element={<EpisodeDetails />} />
         </Route>

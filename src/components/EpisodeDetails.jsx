@@ -3,21 +3,8 @@ import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import ClipLoader from "react-spinners/ClipLoader";
+import Spinner from "./Spinner";
 
-const override = (React.CSSProperties = {
-  display: "block",
-  width: "60px",
-  height: "60px",
-  margin: "0 auto",
-  position: "absolute",
-  left: "50%",
-  top: "50%",
-  Transform: "translate(-50% , -50%)",
-  borderColor: "White",
-  borderWidth: "5px",
-});
 const EpisodeDetails = () => {
   const { episodeID } = useParams();
 
@@ -31,25 +18,26 @@ const EpisodeDetails = () => {
       `https://www.breakingbadapi.com/api/characters`
     );
     setCharacters(res.data);
+    console.log(res.data);
     setIsLoading(false);
-    // console.log(res.data);
   };
   const fetchData = async () => {
+    setIsLoading(true);
     const res = await axios.get(
       `https://www.breakingbadapi.com/api/episodes/${episodeID}`
     );
     setEpisodes(res.data);
+    setIsLoading(false);
     // console.log(res.data);
   };
   useEffect(() => {
     fetchData();
     fetchImg();
   }, [episodeID]);
-  const navigate = useNavigate();
   return (
     <>
       {isLoading ? (
-        <ClipLoader cssOverride={override} />
+        <Spinner />
       ) : (
         <>
           <div className="container">
@@ -62,6 +50,7 @@ const EpisodeDetails = () => {
                         <Card.Body key={index}>
                           <Card.Title>
                             <h2 className="heading">
+                              {" "}
                               {episode.episode_id}. {episode.title}
                             </h2>
                           </Card.Title>
@@ -105,26 +94,15 @@ const EpisodeDetails = () => {
                                   ) : null
                                 );
                               })}
-                              <Link
-                                to="/allepisode"
-                                className="text-center d-inline-block"
-                              >
+                              <Link to="/allepisode" className="text-center">
                                 <Button
                                   variant="success"
                                   size="lg"
-                                  className="mt-5 mb-2"
+                                  className="mt-5 mb-5"
                                 >
                                   All Episode
                                 </Button>
                               </Link>
-                              <div className="text-center d-inline-block mb-3">
-                                <button
-                                  onClick={() => navigate(-1)}
-                                  className="btn mt-4 btn-success"
-                                >
-                                  Previous Page
-                                </button>
-                              </div>
                             </div>
                           </div>
                         </div>

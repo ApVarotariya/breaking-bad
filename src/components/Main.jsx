@@ -1,26 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Tabs, Tab } from "react-bootstrap";
 import Episode from "./Episode";
-import ClipLoader from "react-spinners/ClipLoader";
+import Spinner from "./Spinner";
 
 const Main = () => {
-  const [items, setItems] = useState([]);
+  const [Items, setItems] = useState([]);
   const [searchApiData, setSearchApiData] = useState([]);
   const [filterVal, setFilterVal] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const override = (React.CSSProperties = {
-    display: "block",
-    width: "60px",
-    height: "60px",
-    margin: "0 auto",
-    position: "absolute",
-    left: "0%",
-    top: "50%",
-    right: "0%",
-    borderColor: "white",
-    borderWidth: "5px",
-  });
+  const [count, setCount] = useState(0);
+
   useEffect(() => {
     const fetchData = () => {
       setIsLoading(true);
@@ -30,11 +20,12 @@ const Main = () => {
           setItems(json);
           setSearchApiData(json);
           setIsLoading(false);
+          console.log(json);
         });
     };
     fetchData();
   }, []);
-  const handleFilter = (e) => {
+  const HandleFilter = (e) => {
     if (e.target.value == "") {
       setItems(searchApiData);
     } else {
@@ -43,16 +34,26 @@ const Main = () => {
           item.title.toLowerCase().includes(e.target.value.toLowerCase()) ||
           item.air_date.toLowerCase().includes(e.target.value.toLowerCase()) ||
           item.series.toLowerCase().includes(e.target.value.toLowerCase())
+          // item.characters
+          //   .toLowerCase()
+          //   .includes(e.target.value.toLowerCase())
         );
       });
       setItems(filterResult);
+      console.log(filterResult);
     }
     setFilterVal(e.target.value);
   };
+
+  const incrementCount = () => {
+    setCount(count + 1);
+  };
   return (
     <>
+      {/* <h1 className="text-white">Count:{count}</h1>
+      <button onClick={incrementCount}>Increment</button> */}
       {isLoading ? (
-        <ClipLoader cssOverride={override} />
+        <Spinner />
       ) : (
         <>
           <input
@@ -61,7 +62,7 @@ const Main = () => {
             className="search form-control mx-auto my-4"
             autoFocus
             style={{ width: "50%", height: "44px" }}
-            onInput={handleFilter}
+            onInput={(e) => HandleFilter(e)}
           />
           <div className="container">
             <div className="row">
@@ -74,28 +75,34 @@ const Main = () => {
                   <Tab eventKey="home" title="Season 1" className="text-white">
                     <div className="episode_card_main">
                       <div className="row">
-                        {items.map((item, index) =>
-                          item.series === "Breaking Bad" &&
-                          item.season === "1" ? (
-                            <Episode
-                              key={index}
-                              episode_id={item.episode_id}
-                              episode={item.episode}
-                              title={item.title}
-                              air_date={item.air_date}
-                              season={item.season}
-                            />
-                          ) : null
+                        {isLoading ? (
+                          <Spinner />
+                        ) : (
+                          <>
+                            {Items.map((item, index) =>
+                              item.series === "Breaking Bad" &&
+                              item.season == 1 ? (
+                                <Episode
+                                  key={index}
+                                  episode_id={item.episode_id}
+                                  episode={item.episode}
+                                  title={item.title}
+                                  air_date={item.air_date}
+                                  season={item.season}
+                                />
+                              ) : null
+                            )}
+                          </>
                         )}
                       </div>
                     </div>
                   </Tab>
+
                   <Tab eventKey="Season_2" title="Season 2">
                     <div className="episode_card_main">
                       <div className="row">
-                        {items.map((item, index) =>
-                          item.series === "Breaking Bad" &&
-                          item.season === "2" ? (
+                        {Items.map((item, index) =>
+                          item.series === "Breaking Bad" && item.season == 2 ? (
                             <Episode
                               key={index}
                               episode={item.episode}
@@ -112,7 +119,7 @@ const Main = () => {
                   <Tab eventKey="Season_3" title="Season 3">
                     <div className="episode_card_main">
                       <div className="row">
-                        {items.map((item, index) =>
+                        {Items.map((item, index) =>
                           item.series === "Breaking Bad" && item.season == 3 ? (
                             <Episode
                               key={index}
@@ -130,7 +137,7 @@ const Main = () => {
                   <Tab eventKey="Season_4" title="Season 4">
                     <div className="episode_card_main">
                       <div className="row">
-                        {items.map((item, index) =>
+                        {Items.map((item, index) =>
                           item.series === "Breaking Bad" && item.season == 4 ? (
                             <Episode
                               key={index}
@@ -148,7 +155,7 @@ const Main = () => {
                   <Tab eventKey="Season_5" title="Season 5">
                     <div className="episode_card_main">
                       <div className="row">
-                        {items.map((item, index) =>
+                        {Items.map((item, index) =>
                           item.series === "Breaking Bad" && item.season == 5 ? (
                             <Episode
                               key={index}
